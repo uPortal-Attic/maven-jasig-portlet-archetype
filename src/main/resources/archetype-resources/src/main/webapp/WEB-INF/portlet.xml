@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<portlet-app
+        xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd
+                            http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
+        version="1.0">
+
+        <portlet>
+            <portlet-name>${artifactId}</portlet-name>
+                <portlet-class>
+                    org.springframework.web.portlet.DispatcherPortlet
+                </portlet-class>
+                <init-param>
+                        <name>contextConfigLocation</name>
+                        <!-- Change this file to be ${artifactId}-portlet.xml
+                             after creation (rename the file and reference it
+                             here). -->
+                        <value>/WEB-INF/context/portlet/helloworld-portlet.xml</value>
+                </init-param>
+                <!-- This value is to 0 in dev, can set to cache at a positive
+                     value in seconds for caching, or -1 to never expire cache -->
+                <expiration-cache>0</expiration-cache>
+                <supports>
+                        <mime-type>text/html</mime-type>
+                        <portlet-mode>view</portlet-mode>
+                </supports>
+                <portlet-info>
+                        <title>${artifactId} Portlet</title>
+                </portlet-info>
+        </portlet>
+        <user-attribute>
+                <description>User First Name</description>
+                <name>user.name.given</name>
+        </user-attribute>
+        <user-attribute>
+                <description>User Family Name</description>
+                <name>user.name.family</name>
+        </user-attribute>
+</portlet-app>

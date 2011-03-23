@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:jee="http://www.springframework.org/schema/jee"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+  http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="location" value="classpath:helloworld.properties"/>
+  </bean>
+
+    <!-- Message source for this context, loaded from localized "messages_xx" files -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>messages</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Default View Resolver -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="cache" value="${viewResCache}"/>
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- Abstract Default Exception Handler Bean -->
+  <bean class="org.springframework.web.portlet.handler.SimpleMappingExceptionResolver">
+    <property name="defaultErrorView" value="defError"/>
+    <property name="exceptionMappings">
+      <props>
+        <prop key="javax.portlet.PortletSecurityException">notAuthorized</prop>
+        <prop key="javax.portlet.UnavailableException">notAvailable</prop>
+        <prop key="java.lang.Exception">defError</prop>
+      </props>
+    </property>
+  </bean>
+
+</beans>

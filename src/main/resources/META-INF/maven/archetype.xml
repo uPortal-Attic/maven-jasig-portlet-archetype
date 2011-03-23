@@ -1,0 +1,74 @@
+<archetype>
+  <id>portlet-gen-uportal</id>
+  <sources>
+      <source>src/main/java/domain/Domain.java</source>
+      <source>src/main/java/domain/package-info.java</source>
+      <source>src/main/java/service/Service.java</source>
+      <source>src/main/java/service/package-info.java</source>
+      <source>src/main/java/validation/Validation.java</source>
+      <source>src/main/java/validation/package-info.java</source>
+      <source>src/main/java/portlet/HelloWorldPortlet.java</source>
+      <source>src/main/java/portlet/package-info.java</source>
+  </sources>
+  <testSources>
+      <source>src/test/java/AppTest.java</source>
+  </testSources>
+  <testResources>
+      <resource>src/test/resources/test-log4j.properties</resource>
+  </testResources>
+  <resources>
+      <resource>src/main/resources/log4j.properties</resource>
+      <resource>src/main/resources/messages.properties</resource>
+      <resource>src/main/resources/helloworld.properties</resource>
+      <resource>src/main/webapp/WEB-INF/context/applicationContext.xml</resource>
+      <resource>src/main/webapp/WEB-INF/context/portlet/helloworld-portlet.xml</resource>
+      <resource>src/main/webapp/WEB-INF/web.xml</resource>
+      <resource>src/main/webapp/WEB-INF/portlet.xml</resource>
+      <!-- Filtered false keeps mvn from applying Velocity replacement
+           during generation from archetype template, we'll need the
+           Velocity replacement but not until the derived project specific
+           build -->
+      <resource filtered="false">src/main/webapp/WEB-INF/jsp/include.jsp</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/jsp/helloWorld.jsp</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/jsp/notAuthorized.jsp</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/jsp/notAvailable.jsp</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/jsp/defError.jsp</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/jsp/exceptions.jsp</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/jsp/redirect.jsp</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/jsp/edit.jsp</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/jsp/view.jsp</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/jsp/help.jsp</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/dtd/spring-beans.dtd</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/tags/c.tld</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/tags/fmt.tld</resource>
+      <resource filtered="false">src/main/webapp/WEB-INF/tags/fn.tld</resource>
+    <resource filtered="false">src/main/webapp/WEB-INF/tags/customHtml.tld</resource>
+    <resource filtered="false">
+          src/main/webapp/WEB-INF/tld/portlet.tld
+      </resource>
+      <resource filtered="false">
+          src/main/webapp/WEB-INF/tags/spring.tld
+      </resource>
+      <resource filtered="false">
+          src/main/webapp/WEB-INF/tags/html/attributes.tag
+      </resource>
+      <resource filtered="false">
+          src/main/webapp/WEB-INF/tags/html/errors.tag
+      </resource>
+      <resource filtered="false">
+          src/main/webapp/WEB-INF/tags/html/imagesPath.tag
+      </resource>
+      <resource filtered="false">
+          src/main/webapp/WEB-INF/tags/html/include.jsp
+      </resource>
+      <resource filtered="false">
+          src/main/webapp/WEB-INF/tags/html/input.tag
+      </resource>
+      <resource filtered="false">
+          src/main/webapp/WEB-INF/tags/html/rootPath.tag
+      </resource>
+      <resource filtered="false">
+          src/main/webapp/WEB-INF/tags/html/textarea.tag
+      </resource>
+  </resources>
+</archetype>
