@@ -1,44 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:context="http://www.springframework.org/schema/context"
-  xmlns:jee="http://www.springframework.org/schema/jee"
-  xmlns:p="http://www.springframework.org/schema/p"
-  xmlns:tx="http://www.springframework.org/schema/tx"
-  xmlns:util="http://www.springframework.org/schema/util"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-  http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
-  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-  http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!--  enable access to externalized properties via PropertyPlaceholderConfigurer
-          It seems that you have to enable this here, even though its also enabled
-          in the applicationContext.xml file, or unit tests will fail -->
-    <!-- Change the location value to something besides helloword.propeties
-         usually, application-name.properties, after renaming -->
-  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-    <property name="location" value="classpath:helloworld.properties"/>
-  </bean>
+    <context:component-scan base-package="${packageName}.mvc.portlet" />
+    <context:annotation-config />
 
-  <!-- Controllers -->
-  <bean id="helloWorldPortlet" class="${packageName}.portlet.HelloWorldPortlet">
-    <!-- See applicationContext.xml for service bean wiring -->
-    <!-- Set this to 0 for dev, might want to cache in prod, this overrides the
-         cache value set in applicationContext.xml in the viewResolver bean -->
-    <property name="cacheSeconds" value="0"/>
-  </bean>
-
-  <!-- Handler Mapping -->
-  <bean id="portletModeHandlerMapping"
-    class="org.springframework.web.portlet.handler.PortletModeHandlerMapping">
-    <property name="portletModeMap">
-      <map>
-        <entry key="view">
-          <ref bean="helloWorldPortlet"/>
-        </entry>
-      </map>
-    </property>
-  </bean>
+    <bean
+        class="org.springframework.web.portlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
 
 </beans>

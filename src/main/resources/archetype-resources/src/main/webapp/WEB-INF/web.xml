@@ -51,41 +51,4 @@
         <url-pattern>/WEB-INF/servlet/view</url-pattern>
     </servlet-mapping>
 
-    <taglib>
-        <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
-        <taglib-location>/WEB-INF/tags/c.tld</taglib-location>
-    </taglib>
-
-    <taglib>
-        <taglib-uri>http://java.sun.com/jsp/jstl/fmt</taglib-uri>
-        <taglib-location>/WEB-INF/tags/fmt.tld</taglib-location>
-    </taglib>
-
-    <taglib>
-        <taglib-uri>http://java.sun.com/jsp/jstl/functions</taglib-uri>
-        <taglib-location>/WEB-INF/tags/fn.tld</taglib-location>
-    </taglib>
-
-    <taglib>
-        <taglib-uri>http://www.springframework.org/tags</taglib-uri>
-        <taglib-location>/WEB-INF/tags/spring.tld</taglib-location>
-    </taglib>
-
-    <taglib>
-        <taglib-uri>http://java.sun.com/portlet</taglib-uri>
-        <taglib-location>/WEB-INF/tld/portlet.tld</taglib-location>
-    </taglib>
-
-    <!-- The res-ref-name might need to be adjusted to match the JNDI
-         resource name, for database pooling, set in the tomcat config files:
-         server.xml and context.xml -->
-    <!-- Uncomment this if you want to use tomcat JNDI pooling
-    <resource-ref>
-        <description>UVIC Portal JNDI DataSource Reference</description>
-        <res-ref-name>jdbc/PortalDb</res-ref-name>
-        <res-type>javax.sql.DataSource</res-type>
-        <res-auth>Container</res-auth>
-    </resource-ref>
-     -->
-
 </web-app>

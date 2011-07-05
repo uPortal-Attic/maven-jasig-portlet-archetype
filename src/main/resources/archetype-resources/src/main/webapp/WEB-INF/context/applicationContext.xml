@@ -33,16 +33,4 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!-- Abstract Default Exception Handler Bean -->
-  <bean class="org.springframework.web.portlet.handler.SimpleMappingExceptionResolver">
-    <property name="defaultErrorView" value="defError"/>
-    <property name="exceptionMappings">
-      <props>
-        <prop key="javax.portlet.PortletSecurityException">notAuthorized</prop>
-        <prop key="javax.portlet.UnavailableException">notAvailable</prop>
-        <prop key="java.lang.Exception">defError</prop>
-      </props>
-    </property>
-  </bean>
-
 </beans>
