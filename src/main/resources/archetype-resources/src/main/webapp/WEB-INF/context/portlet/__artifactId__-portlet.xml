@@ -6,10 +6,11 @@
       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <context:component-scan base-package="${packageName}.mvc.portlet" />
+    <context:component-scan base-package="${package}.mvc.portlet" />
     <context:annotation-config />
 
-    <bean
-        class="org.springframework.web.portlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+    <bean class="org.springframework.web.portlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+        <property name="interceptors"><bean class="${package}.mvc.MinimizedStateHandlerInterceptor"/></property>
+    </bean>
 
 </beans>

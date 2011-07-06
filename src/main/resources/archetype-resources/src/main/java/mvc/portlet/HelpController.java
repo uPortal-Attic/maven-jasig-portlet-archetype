@@ -1,4 +1,4 @@
-package ${packageName}.mvc.portlet;
+package ${package}.mvc.portlet;
 
 import java.util.Map;
 

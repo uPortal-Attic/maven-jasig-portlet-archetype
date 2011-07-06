@@ -5,6 +5,4 @@
     <artifactId>jsr286-archetype</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>JSR 286 Archetype</name>
-    <url>http://maven.apache.org</url>
-    <packaging>jar</packaging>
 </project>
