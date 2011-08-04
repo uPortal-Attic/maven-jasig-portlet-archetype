@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     
     <parent>
         <groupId>org.jasig.parent</groupId>
@@ -10,13 +9,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jasig.portlet.archetype</groupId>
     <artifactId>jsr286-archetype</artifactId>
-    <version>1.0.0-RC1-SNAPSHOT</version>
+    <version>1.0.0-RC1</version>
     <name>JSR 286 Archetype</name>
 
     <scm>
-        <connection>scm:svn:https://source.jasig.org/sandbox/portlet-archetypes/jasig-portlet-286/trunk</connection>
-        <developerConnection>scm:svn:https://source.jasig.org/sandbox/portlet-archetypes/jasig-portlet-286/trunk</developerConnection>
-        <url>https://developer.jasig.org/source/browse/jasigsvn/portlet-archetypes/jasig-portlet-286/trunk</url>
+        <connection>scm:svn:https://source.jasig.org/sandbox/portlet-archetypes/jasig-portlet-286/tags/jsr286-archetype-1.0.0-RC1</connection>
+        <developerConnection>scm:svn:https://source.jasig.org/sandbox/portlet-archetypes/jasig-portlet-286/tags/jsr286-archetype-1.0.0-RC1</developerConnection>
+        <url>https://developer.jasig.org/source/browse/jasigsvn/portlet-archetypes/jasig-portlet-286/tags/jsr286-archetype-1.0.0-RC1</url>
     </scm>
 
     <build>
