@@ -1,23 +1,12 @@
-<!--
-
-    Licensed to Jasig under one or more contributor license
-    agreements. See the NOTICE file distributed with this work
-    for additional information regarding copyright ownership.
-    Jasig licenses this file to you under the Apache License,
-    Version 2.0 (the "License"); you may not use this file
-    except in compliance with the License. You may obtain a
-    copy of the License at:
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on
-    an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, either express or implied. See the License for the
-    specific language governing permissions and limitations
-    under the License.
-
--->
+<!-- Licensed to Jasig under one or more contributor license agreements. See the 
+    NOTICE file distributed with this work for additional information regarding copyright 
+    ownership. Jasig licenses this file to you under the Apache License, Version 2.0 
+    (the "License"); you may not use this file except in compliance with the License. 
+    You may obtain a copy of the License at: http://www.apache.org/licenses/LICENSE-2.0 
+    Unless required by applicable law or agreed to in writing, software distributed under 
+    the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+    OF ANY KIND, either express or implied. See the License for the specific language 
+    governing permissions and limitations under the License. -->
 
 <archetype-descriptor
     xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
@@ -27,18 +16,21 @@
     <requiredProperties>
     </requiredProperties>
     <fileSets>
+        <!-- Java class files, filtered and packaged -->
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
             <directory>src/main/java</directory>
             <includes>
                 <include>**/*.java</include>
             </includes>
         </fileSet>
+        <!-- Project properties files, filtered -->
         <fileSet filtered="true" packaged="false" encoding="UTF-8">
             <directory>src/main/resources</directory>
             <includes>
                 <include>**/*.properties</include>
             </includes>
         </fileSet>
+        <!-- Spring context files and webapp/portlet descriptors, filtered -->
         <fileSet filtered="true" packaged="false" encoding="UTF-8">
             <directory>src/main/webapp</directory>
             <includes>
@@ -48,10 +40,19 @@
                 <exclude>**/*.jsp</exclude>
             </excludes>
         </fileSet>
+        <!-- JSP view files, unfiltered to prevent collision with JSTL syntax -->
         <fileSet filtered="false" packaged="false" encoding="UTF-8">
             <directory>src/main/webapp/WEB-INF/jsp</directory>
             <includes>
                 <include>**/*.jsp</include>
+            </includes>
+        </fileSet>
+        <!-- Default license and notice files for the new project -->
+        <fileSet filtered="false" packaged="false" encoding="UTF-8">
+            <directory></directory>
+            <includes>
+                <include>LICENSE</include>
+                <include>NOTICE</include>
             </includes>
         </fileSet>
     </fileSets>

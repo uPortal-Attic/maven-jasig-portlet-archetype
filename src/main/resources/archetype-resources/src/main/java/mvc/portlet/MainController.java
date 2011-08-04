@@ -58,15 +58,16 @@ public class MainController {
         // determine if the request represents a mobile browser and set the
         // view name accordingly
         final boolean isMobile = viewSelector.isMobile(request);
-        final String viewName = isMobile ? "main" : "main-jQM";        
-        final ModelAndView mav = new ModelAndView("main");
+        final String viewName = isMobile ? "main-jQM" : "main";        
+        final ModelAndView mav = new ModelAndView(viewName);
         
         if(logger.isDebugEnabled()) {
-            logger.debug("Gathering user info for main view");
+            logger.debug("Using view name " + viewName + " for main view");
         }
 
         //Get the USER_INFO from portlet.xml,
         //which gets it from personDirectoryContext.xml
+        @SuppressWarnings("unchecked")
         final Map<String,String> userInfo = (Map<String,String>) request.
                 getAttribute(PortletRequest.USER_INFO);
         

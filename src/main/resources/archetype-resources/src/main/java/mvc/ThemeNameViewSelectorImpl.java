@@ -20,7 +20,9 @@
 package ${package}.mvc;
 
 import javax.portlet.PortletRequest;
-import javax.portlet.WindowState;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 public class ThemeNameViewSelectorImpl implements IViewSelector {
     
@@ -28,6 +30,8 @@ public class ThemeNameViewSelectorImpl implements IViewSelector {
     protected static final String MOBILE_THEMES_KEY = "mobileThemes";
     protected static final String[] MOBILE_THEMES_DEFAULT = new String[]{ "UniversalityMobile" };
 
+    protected final Log logger = LogFactory.getLog(getClass());
+    
     public boolean isMobile(PortletRequest request) {
         
         String[] mobileThemes = request.getPreferences().getValues(MOBILE_THEMES_KEY, MOBILE_THEMES_DEFAULT);
@@ -36,6 +40,7 @@ public class ThemeNameViewSelectorImpl implements IViewSelector {
         // if no theme name can be found, just assume the request is for a 
         // desktop client
         if (themeName == null) {
+            logger.debug("No theme name found, assuming desktop environment");
             return false;
         }
 
@@ -43,10 +48,12 @@ public class ThemeNameViewSelectorImpl implements IViewSelector {
         // mobile themes
         for (String theme : mobileThemes) {
             if (themeName.equals(theme)) {
+                logger.debug("Theme name " + themeName + " matches configured list of mobile themes");
                 return true;
             }
         }
         
+        logger.debug("No match found for theme name " + themeName + ", assuming desktop environment");
         return false;
     }
 

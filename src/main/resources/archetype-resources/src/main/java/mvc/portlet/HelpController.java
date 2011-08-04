@@ -19,14 +19,13 @@
 
 package ${package}.mvc.portlet;
 
-import java.util.Map;
-
-import javax.portlet.PortletRequest;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
+import ${package}.mvc.IViewSelector;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.portlet.bind.annotation.ActionMapping;
@@ -42,6 +41,13 @@ public class HelpController {
 
     protected final Log logger = LogFactory.getLog(getClass());
 
+    private IViewSelector viewSelector;
+    
+    @Autowired(required = true)
+    public void setViewSelector(IViewSelector viewSelector) {
+        this.viewSelector = viewSelector;
+    }
+    
     /**
      * Returns the help view.  The help view is a very simple JSP, so we don't
      * both returning a model.
@@ -51,8 +57,18 @@ public class HelpController {
      * @return
      */
     @RenderMapping
-    public String showHelpView(final RenderRequest request, final RenderResponse response) {
-        return "help";
+    public ModelAndView showHelpView(final RenderRequest request, final RenderResponse response) {
+        // determine if the request represents a mobile browser and set the
+        // view name accordingly
+        final boolean isMobile = viewSelector.isMobile(request);
+        final String viewName = isMobile ? "help-jQM" : "help";
+        final ModelAndView mav = new ModelAndView(viewName);
+        
+        if(logger.isDebugEnabled()) {
+            logger.debug("Using view name " + viewName + " for help view");
+        }
+
+        return mav;
     }
 
     @ActionMapping

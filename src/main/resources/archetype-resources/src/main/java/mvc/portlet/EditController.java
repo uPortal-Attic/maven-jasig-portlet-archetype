@@ -19,14 +19,13 @@
 
 package ${package}.mvc.portlet;
 
-import java.util.Map;
-
-import javax.portlet.PortletRequest;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
+import ${package}.mvc.IViewSelector;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.portlet.bind.annotation.ActionMapping;
@@ -43,11 +42,27 @@ public class EditController {
 
     protected final Log logger = LogFactory.getLog(getClass());
     
+    private IViewSelector viewSelector;
+    
+    @Autowired(required = true)
+    public void setViewSelector(IViewSelector viewSelector) {
+        this.viewSelector = viewSelector;
+    }
+    
     @RenderMapping
     public ModelAndView showMainView(
             final RenderRequest request, final RenderResponse response) {
 
-        final ModelAndView mav = new ModelAndView("edit");
+        // determine if the request represents a mobile browser and set the
+        // view name accordingly
+        final boolean isMobile = viewSelector.isMobile(request);
+        final String viewName = isMobile ? "edit-jQM" : "edit";        
+        final ModelAndView mav = new ModelAndView(viewName);
+        
+        if(logger.isDebugEnabled()) {
+            logger.debug("Using view name " + viewName + " for edit view");
+        }
+
         return mav;
 
     }
