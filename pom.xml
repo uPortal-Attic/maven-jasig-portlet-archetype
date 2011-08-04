@@ -9,13 +9,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jasig.portlet.archetype</groupId>
     <artifactId>jsr286-archetype</artifactId>
-    <version>1.0.0-RC1</version>
+    <version>1.0.0-RC2-SNAPSHOT</version>
     <name>JSR 286 Archetype</name>
 
     <scm>
-        <connection>scm:svn:https://source.jasig.org/sandbox/portlet-archetypes/jasig-portlet-286/tags/jsr286-archetype-1.0.0-RC1</connection>
-        <developerConnection>scm:svn:https://source.jasig.org/sandbox/portlet-archetypes/jasig-portlet-286/tags/jsr286-archetype-1.0.0-RC1</developerConnection>
-        <url>https://developer.jasig.org/source/browse/jasigsvn/portlet-archetypes/jasig-portlet-286/tags/jsr286-archetype-1.0.0-RC1</url>
+        <connection>scm:svn:https://source.jasig.org/sandbox/portlet-archetypes/jasig-portlet-286/trunk</connection>
+        <developerConnection>scm:svn:https://source.jasig.org/sandbox/portlet-archetypes/jasig-portlet-286/trunk</developerConnection>
+        <url>https://developer.jasig.org/source/browse/jasigsvn/portlet-archetypes/jasig-portlet-286/trunk</url>
     </scm>
 
     <build>
