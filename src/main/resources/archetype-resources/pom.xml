@@ -12,7 +12,7 @@
     <artifactId>${artifactId}</artifactId>
     <packaging>war</packaging>
     <version>${version}</version>
-    <name>${pom.artifactId}</name>
+    <name>${artifactId}</name>
     <description>
         Starter Spring PortletMVC shell for Jasig JSR-286 Portlets
     </description>

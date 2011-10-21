@@ -30,7 +30,7 @@
 
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>${packageName}.portlet.root</param-value>
+        <param-value>${package}.portlet.root</param-value>
     </context-param>
 
     <context-param>
