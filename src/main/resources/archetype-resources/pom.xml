@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jasig.parent</groupId>
         <artifactId>jasig-parent</artifactId>
-        <version>31</version>
+        <version>33</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -266,7 +266,6 @@
                     <plugin>
                         <artifactId>maven-uportal-plugin</artifactId>
                         <groupId>org.jasig.portal</groupId>
-                        <version>1.0.0-M4-SNAPSHOT</version>
                         <configuration>
                             <contextName>${pom.artifactId}</contextName>
                             <artifactId>${pom.artifactId}</artifactId>
