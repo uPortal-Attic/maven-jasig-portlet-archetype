@@ -23,47 +23,63 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
     name="Jasig JSR-286 Portlet" partial="false">
-    <requiredProperties>
-    </requiredProperties>
-    <fileSets>
-        <!-- Java class files, filtered and packaged -->
-        <fileSet filtered="true" packaged="true" encoding="UTF-8">
-            <directory>src/main/java</directory>
-            <includes>
-                <include>**/*.java</include>
-            </includes>
-        </fileSet>
-        <!-- Project properties files, filtered -->
-        <fileSet filtered="true" packaged="false" encoding="UTF-8">
-            <directory>src/main/resources</directory>
-            <includes>
-                <include>**/*.properties</include>
-            </includes>
-        </fileSet>
-        <!-- Spring context files and webapp/portlet descriptors, filtered -->
-        <fileSet filtered="true" packaged="false" encoding="UTF-8">
-            <directory>src/main/webapp</directory>
-            <includes>
-                <include>**/*.xml</include>
-            </includes>
-            <excludes>
-                <exclude>**/*.jsp</exclude>
-            </excludes>
-        </fileSet>
-        <!-- JSP view files, unfiltered to prevent collision with JSTL syntax -->
-        <fileSet filtered="false" packaged="false" encoding="UTF-8">
-            <directory>src/main/webapp/WEB-INF/jsp</directory>
-            <includes>
-                <include>**/*.jsp</include>
-            </includes>
-        </fileSet>
-        <!-- Default license and notice files for the new project -->
-        <fileSet filtered="false" packaged="false" encoding="UTF-8">
-            <directory></directory>
-            <includes>
-                <include>LICENSE</include>
-                <include>NOTICE</include>
-            </includes>
-        </fileSet>
-    </fileSets>
+  <requiredProperties>
+  </requiredProperties>
+  <fileSets>
+    <!-- Java class files, filtered and packaged -->
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <!-- Project resource files, filtered -->
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*.properties</include>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+    <!-- Spring context files and webapp/portlet descriptors, filtered -->
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/main/webapp</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+      <excludes>
+        <exclude>**/*.jsp</exclude>
+      </excludes>
+    </fileSet>
+    <!-- JSP view files, unfiltered to prevent collision with JSTL syntax -->
+    <fileSet filtered="false" packaged="false" encoding="UTF-8">
+      <directory>src/main/webapp/WEB-INF/jsp</directory>
+      <includes>
+        <include>**/*.jsp</include>
+      </includes>
+    </fileSet>
+    <!-- Default license and notice files for the new project -->
+    <fileSet filtered="false" packaged="false" encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>LICENSE</include>
+        <include>NOTICE</include>
+      </includes>
+    </fileSet>
+    <!-- Test Java class files, filtered and packaged -->
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/test/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <!-- Test resources files, filtered -->
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/test/resources</directory>
+      <includes>
+        <include>**/*.properties</include>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+  </fileSets>
 </archetype-descriptor>

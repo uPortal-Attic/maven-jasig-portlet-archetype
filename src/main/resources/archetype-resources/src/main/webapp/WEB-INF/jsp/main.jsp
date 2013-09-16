@@ -21,6 +21,6 @@
 
 <jsp:directive.include file="/WEB-INF/jsp/include.jsp"/>
 
-<h2>Hello ${ fn:escapeXml(displayName) }!</h2>
+<h2><spring:message code="portlet.hello"/> ${ fn:escapeXml(displayName) }!</h2>
 
-<p>Your email address is ${ fn:escapeXml(emailAddress) }</p>
+<p><spring:message code="portlet.emailAddress"/> ${ fn:escapeXml(emailAddress) }</p>

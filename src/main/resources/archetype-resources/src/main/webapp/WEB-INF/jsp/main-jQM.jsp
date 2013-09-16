@@ -24,15 +24,15 @@
 <div class="portlet">
     <div data-role="content" class="portlet-content">
 
-        <h2>Hello ${ fn:escapeXml(displayName) }!</h2>
+        <h2><spring:message code="portlet.hello"/> ${ fn:escapeXml(displayName) }!</h2>
         
-        <p>Your email address is ${ fn:escapeXml(emailAddress) }</p>
+        <p><spring:message code="portlet.emailAddress"/> ${ fn:escapeXml(emailAddress) }</p>
         
         <portlet:renderURL var="preferencesUrl" portletMode="edit"/>
-        <p><a data-role="button" href="${ preferencesUrl }">Preferences</a></p>
+        <p><a data-role="button" href="${ preferencesUrl }"><spring:message code="portlet.preferences"/></a></p>
 
         <portlet:renderURL var="helpUrl" portletMode="help"/>
-        <p><a href="${ helpUrl }">Help</a></p>
+        <p><a href="${ helpUrl }"><spring:message code="portlet.help"/></a></p>
     
     </div>
 </div>

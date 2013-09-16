@@ -22,54 +22,47 @@
 
 
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-                         "http://java.sun.com/dtd/web-app_2_3.dtd">
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
 
-    <display-name>uPortal Spring Portlet MVC UVIC ${artifactId} Wrapper</display-name>
+  <display-name>uPortal Spring Portlet MVC UVIC ${artifactId} Wrapper</display-name>
 
-    <context-param>
-        <param-name>webAppRootKey</param-name>
-        <param-value>${packageName}.portlet.root</param-value>
-    </context-param>
+  <!-- Context parameter for logback.  See https://wiki.jasig.org/display/PLT/Logging+Best+Practices -->
+  <context-param>
+    <param-name>webAppRootKey</param-name>
+    <param-value>${artifactId}.webapp.root</param-value>
+  </context-param>
 
-    <context-param>
-        <param-name>log4jConfigLocation</param-name>
-        <param-value>/WEB-INF/classes/log4j.properties</param-value>
-    </context-param>
+  <!-- Setup the root Spring WebApplicationContext -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/context/applicationContext.xml</param-value>
+  </context-param>
 
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/context/applicationContext.xml</param-value>
-    </context-param>
+  <!-- Must be the first listener so the webAppRootKey gets set for logback -->
+  <listener>
+    <listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
+  </listener>
+  <!-- Needed to remove JMX registration and allow for classloader GC -->
+  <listener>
+    <listener-class>ch.qos.logback.classic.selector.servlet.ContextDetachingSCL</listener-class>
+  </listener>
 
-    <listener>
-        <listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
-    </listener>
+  <!-- Bootstrap to startup and shutdowns Spring WebApplicationContext -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 
-    <listener>
-        <listener-class>
-                org.springframework.web.util.Log4jConfigListener
-        </listener-class>
-    </listener>
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
 
-    <listener>
-        <listener-class>
-                org.springframework.web.context.ContextLoaderListener
-        </listener-class>
-    </listener>
-
-    <servlet>
-        <servlet-name>ViewRendererServlet</servlet-name>
-        <servlet-class>
-                org.springframework.web.servlet.ViewRendererServlet
-        </servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ViewRendererServlet</servlet-name>
-        <url-pattern>/WEB-INF/servlet/view</url-pattern>
-    </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
 
 </web-app>

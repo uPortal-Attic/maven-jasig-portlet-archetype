@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package $packageName;
+package ${package};
 
 import junit.framework.Test;
 import junit.framework.TestCase;
