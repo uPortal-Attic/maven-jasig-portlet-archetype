@@ -23,10 +23,12 @@
     <servlet-api.version>2.5</servlet-api.version>
     <spring.version>3.1.4.RELEASE</spring.version>
     <jstl.version>1.2</jstl.version>
-    <logbackVersion>1.0.13</logbackVersion>
+    <logback.version>1.0.13</logback.version>
     <junit.version>4.11</junit.version>
-    <resource-server.version>1.0.31</resource-server.version>
-    <slf4jVersion>1.7.5</slf4jVersion>
+    <resource-server.version>1.0.34</resource-server.version>
+    <slf4j.version>1.7.5</slf4j.version>
+    <log4j.version>1.2.17</log4j.version>
+    <commons.version>1.1.3</commons.version>
   </properties>
 
 
@@ -85,39 +87,39 @@
       <dependency>
         <groupId>commons-logging</groupId>
         <artifactId>commons-logging</artifactId>
-        <version>1.1.2</version>
+        <version>${commons.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>log4j</groupId>
         <artifactId>log4j</artifactId>
-        <version>1.2.17</version>
+        <version>${log4j.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
-        <version>${slf4jVersion}</version>
+        <version>${slf4j.version}</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>jul-to-slf4j</artifactId>
-        <version>${slf4jVersion}</version>
+        <version>${slf4j.version}</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>log4j-over-slf4j</artifactId>
-        <version>${slf4jVersion}</version>
+        <version>${slf4j.version}</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>jcl-over-slf4j</artifactId>
-        <version>${slf4jVersion}</version>
+        <version>${slf4j.version}</version>
       </dependency>
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
-        <version>${logbackVersion}</version>
+        <version>${logback.version}</version>
         <scope>runtime</scope>
       </dependency>
       <!-- End of logging section -->
