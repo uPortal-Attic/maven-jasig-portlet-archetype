@@ -29,14 +29,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jasig.portlet.archetype</groupId>
   <artifactId>jsr286-archetype</artifactId>
-  <version>1.0.0-RC4-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>JSR 286 Archetype</name>
 
   <scm>
     <connection>scm:git:git@github.com:Jasig/maven-jasig-portlet-archetype.git</connection>
     <developerConnection>scm:git:git@github.com:Jasig/maven-jasig-portlet-archetype.git</developerConnection>
     <url>https://github.com/Jasig/uPortal</url>
-    <tag>HEAD</tag>
+    <tag>jsr286-archetype-1.0.0</tag>
   </scm>
 
   <build>
